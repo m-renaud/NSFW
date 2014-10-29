@@ -14,10 +14,10 @@ blacklistFilters = [protocolBlacklistFilter, sourceIpBlacklistFilter]
 packetFilters :: [PacketFilterRule Action]
 packetFilters = concat $ [blacklistFilters]
 
--- | Apply the rules in blacklistFilter given a config, a state, and a packet.
+-- | Apply the rules in packetFilters given a config, a state, and a packet.
 applyRules :: Config -> FirewallState -> Packet -> ([Action], FirewallState, [LogEntry])
 applyRules config state packet = runRWS (sequence filters) config state
-  where filters = map ($ packet) blacklistFilters
+  where filters = map ($ packet) packetFilters
 
 -- | Constants so I don't have to type them in everytime I reload
 goodPacket        = makePacket "ssh"  64 "3.3.3.3" 7000 "2.2.2.2" 80 "ssh"
