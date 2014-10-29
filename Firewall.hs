@@ -20,9 +20,9 @@ applyRules config state packet = runRWS (sequence filters) config state
   where filters = map ($ packet) packetFilters
 
 -- | Constants so I don't have to type them in everytime I reload
-goodPacket        = makePacket "ssh"  64 "3.3.3.3" 7000 "2.2.2.2" 80 "ssh"
-badProtocolPacket = makePacket "http" 64 "9.9.9.9" 7000 "2.2.2.2" 80 "web"
-badSourceIpPacket = makePacket "ssh"  64 "1.1.1.1" 7000 "2.2.2.2" 80 "web"
+goodPacket        = Packet "ssh"  64 "3.3.3.3" 7000 "2.2.2.2" 80 "ssh"
+badProtocolPacket = Packet "http" 64 "9.9.9.9" 7000 "2.2.2.2" 80 "web"
+badSourceIpPacket = Packet "ssh"  64 "1.1.1.1" 7000 "2.2.2.2" 80 "web"
 noLogging   = Config 0
 withLogging = Config 1
-blacklists = makeFirewallState ["http"] ["1.1.1.1"]
+blacklists = FirewallState ["http"] ["1.1.1.1"]

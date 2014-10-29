@@ -5,7 +5,6 @@ Description : Common types and constructor functions.
 module Firewall.Common where
 
 import Control.Monad.RWS (RWS)
-import Data.IP (IP)
 import Firewall.Packet
 
 -- | Configuration data.
@@ -16,13 +15,8 @@ data Config = Config {
 -- | The state shared throughout the FirewallMonad.
 data FirewallState = FirewallState {
   getProtocolBlacklist :: [Protocol],
-  getSourceIpBlacklist :: [IP]
+  getSourceIpBlacklist :: [IpAddress]
   } deriving (Eq, Read, Show)
-
--- | Constructs a FirewallState that automatically converts string IPs to Data.IP.
-makeFirewallState :: [Protocol] -> [String] -> FirewallState
-makeFirewallState protocolBlacklist sourceIpBlacklist =
-  FirewallState protocolBlacklist (map (read :: String -> IP) sourceIpBlacklist)
 
 -- | The level of a log entry.
 data LogLevel = LogInfo | LogWarn | LogError
