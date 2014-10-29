@@ -10,7 +10,7 @@ import Firewall.Packet
 
 import Control.Monad.RWS (get)
 
--- | Function to generate blacklist filtering packet rules.
+-- | Function to generate blacklist packet filtering rules.
 makeBlacklistFilter :: (Eq a, Show a) => (Packet -> a) -> (FirewallState -> [a]) -> PacketFilterRule Action
 makeBlacklistFilter getField blacklist packet = do
   fwState <- get

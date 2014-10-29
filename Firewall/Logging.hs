@@ -14,6 +14,7 @@ import Control.Monad (when)
 import Control.Monad.RWS (ask, tell)
 
 -- | Write a message with the specified to the logs, but only if logging is enabled in the configs.
+-- Logging is enabled if logLevel > 0.
 logMsg :: LogLevel -> String -> FirewallMonad ()
 logMsg level s = do
   config <- ask

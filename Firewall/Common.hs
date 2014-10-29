@@ -44,8 +44,10 @@ data Action = ACCEPT  -- ^ Accept the packet and perform no further processing.
             | DROP    -- ^ Drop the packet.
             deriving (Eq, Read, Show)
 
--- | A firewall rule is a function taking a Packet and operates in the FirewallMonad.
+-- | A packet filter rule is a function taking a Packet, operates in the FirewallMonad,
+-- and either ACCPETs, PASSes, or DROPs the Packet.
 type PacketFilterRule a = Packet -> FirewallMonad a
 
 -- | The monad that the firewall operates in.
+-- Has a readable Config, a writable list of log entries, and a modifyable state.
 type FirewallMonad a = RWS Config [LogEntry] FirewallState a
