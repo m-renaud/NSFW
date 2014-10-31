@@ -1,10 +1,11 @@
+{-# LANGUAGE FlexibleContexts #-}
 {-|
 Module      : Firewall.Common
 Description : Common types and constructor functions.
 -}
 module Firewall.Common where
 
-import Control.Monad.RWS (RWS)
+import Control.Monad.RWS (MonadReader, MonadWriter, RWS)
 import Firewall.Packet
 
 -- | Configuration data.
@@ -31,6 +32,7 @@ data LogEntry = LogEntry {
 instance Show LogEntry where
   show (LogEntry l s) = show l ++ " | " ++ s
 
+class (MonadReader Config a, MonadWriter [LogEntry] a) => MonadLogging a
 
 -- | Defines a firewall rule and the action that should be taken on the packet.
 data Action = ACCEPT  -- ^ Accept the packet and perform no further processing.
