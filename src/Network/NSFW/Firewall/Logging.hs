@@ -8,7 +8,7 @@ Config and logging appropriately.
 -}
 module Network.NSFW.Firewall.Logging where
 
-import Network.NSFW.Firewall.Common (LogEntry(..), LogLevel, FirewallMonad(..))
+import Network.NSFW.Firewall.Common (LogEntry(..), LogLevel, FirewallMonad)
 import Network.NSFW.Firewall.Config
 
 import Control.Monad (when)
