@@ -1,8 +1,8 @@
 {-|
-Module      : Firewall.Packet
+Module      : Network.NSFW.Firewall.Packet
 Description : Defines the Packet data type.
 -}
-module Firewall.Packet where
+module Network.NSFW.Firewall.Packet where
 
 import Data.Int (Int8, Int16)
 

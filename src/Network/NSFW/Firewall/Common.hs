@@ -1,13 +1,14 @@
 {-# LANGUAGE FlexibleContexts #-}
 {-|
-Module      : Firewall.Common
+Module      : Network.NSFW.Firewall.Common
 Description : Common types and constructor functions.
 -}
-module Firewall.Common where
+module Network.NSFW.Firewall.Common where
+
+import Network.NSFW.Firewall.Config
+import Network.NSFW.Firewall.Packet
 
 import Control.Monad.RWS (RWS)
-import Firewall.Config
-import Firewall.Packet
 
 -- | The state shared throughout the FirewallMonad.
 data FirewallState = FirewallState {

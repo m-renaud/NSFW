@@ -1,12 +1,12 @@
 {-|
-Module      : Firewall.Rule
+Module      : Network.NSFW.Firewall.Rule
 Description : Defines the basic packet filtering rules.
 -}
-module Firewall.Rule where
+module Network.NSFW.Firewall.Rule where
 
-import Firewall.Common
-import Firewall.Logging
-import Firewall.Packet
+import Network.NSFW.Firewall.Common
+import Network.NSFW.Firewall.Logging
+import Network.NSFW.Firewall.Packet
 
 import Control.Monad.RWS (get)
 

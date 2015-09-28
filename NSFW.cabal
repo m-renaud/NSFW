@@ -17,9 +17,14 @@ extra-source-files:  README.md
 cabal-version:       >=1.10
 
 library
-  exposed-modules:     Firewall, Firewall.Rule, Firewall.Common, Firewall.Packet, Firewall.Logging, Firewall.Config
+  exposed-modules:     Firewall, 
+                       Network.NSFW.Firewall.Rule,
+                       Network.NSFW.Firewall.Common,
+                       Network.NSFW.Firewall.Config,
+                       Network.NSFW.Firewall.Logging,
+                       Network.NSFW.Firewall.Packet
   -- other-modules:       
   other-extensions:    FlexibleContexts
   build-depends:       base >=4.8 && <4.9, mtl >=2.2 && <2.3, ConfigFile >=1.1 && <1.2, data-default >=0.5 && <0.6
-  -- hs-source-dirs:      src
+  hs-source-dirs:      src
   default-language:    Haskell2010

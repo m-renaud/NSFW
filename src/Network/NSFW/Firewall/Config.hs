@@ -1,4 +1,4 @@
-module Firewall.Config where
+module Network.NSFW.Firewall.Config where
 
 import Control.Monad.Except (join, liftIO, runExceptT)
 import Data.ConfigFile (CPError, emptyCP, get, readfile)

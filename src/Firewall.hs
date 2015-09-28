@@ -2,11 +2,10 @@ module Firewall where
 
 import Control.Monad.RWS (runRWS)
 
-import Firewall.Common
-import Firewall.Config
-import Firewall.Packet
-import Firewall.Rule
-
+import Network.NSFW.Firewall.Common
+import Network.NSFW.Firewall.Config
+import Network.NSFW.Firewall.Packet
+import Network.NSFW.Firewall.Rule
 
 -- | Simple interactive main where you can enter a string that corresponds to
 --   one of the |packets| below and it will run the filters on it.
