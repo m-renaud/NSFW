@@ -6,10 +6,12 @@ Description : Provides utilities for writing logs.
 The utility functions handle automatically extracting the log level from the
 Config and logging appropriately.
 -}
-module Network.NSFW.Firewall.Logging where
+module Network.NSFW.Firewall.Logging
+       ( logMsg
+       ) where
 
 import Network.NSFW.Firewall.Common (LogEntry(..), LogLevel, FirewallMonad)
-import Network.NSFW.Firewall.Config
+import Network.NSFW.Firewall.Config (getLogLevel)
 
 import Control.Monad (when)
 import Control.Monad.RWS (ask, tell)

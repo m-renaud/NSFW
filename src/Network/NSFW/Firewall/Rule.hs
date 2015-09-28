@@ -2,11 +2,15 @@
 Module      : Network.NSFW.Firewall.Rule
 Description : Defines the basic packet filtering rules.
 -}
-module Network.NSFW.Firewall.Rule where
+module Network.NSFW.Firewall.Rule
+       ( makeBlacklistFilter, protocolBlacklistFilter, sourceIpBlacklistFilter
+       ) where
 
 import Network.NSFW.Firewall.Common
-import Network.NSFW.Firewall.Logging
-import Network.NSFW.Firewall.Packet
+  ( Action(DROP, PASS), FirewallState, LogLevel(LogInfo), PacketFilterRule
+  , getProtocolBlacklist, getSourceIpBlacklist)
+import Network.NSFW.Firewall.Logging (logMsg)
+import Network.NSFW.Firewall.Packet (Packet, getProtocol, getSourceIpAddress)
 
 import Control.Monad.RWS (get)
 

@@ -2,7 +2,11 @@
 Module      : Network.NSFW.Firewall.Packet
 Description : Defines the Packet data type.
 -}
-module Network.NSFW.Firewall.Packet where
+module Network.NSFW.Firewall.Packet
+       ( IpAddress
+       , Protocol
+       , Packet(..)
+       ) where
 
 import Data.Int (Int8, Int16)
 

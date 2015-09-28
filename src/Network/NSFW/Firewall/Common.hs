@@ -3,10 +3,17 @@
 Module      : Network.NSFW.Firewall.Common
 Description : Common types and constructor functions.
 -}
-module Network.NSFW.Firewall.Common where
+module Network.NSFW.Firewall.Common
+       ( FirewallState(..)
+       , LogLevel(..)
+       , LogEntry(..)
+       , Action(..)
+       , PacketFilterRule
+       , FirewallMonad
+       ) where
 
-import Network.NSFW.Firewall.Config
-import Network.NSFW.Firewall.Packet
+import Network.NSFW.Firewall.Config (Config)
+import Network.NSFW.Firewall.Packet (IpAddress, Packet, Protocol)
 
 import Control.Monad.RWS (RWS)
 
